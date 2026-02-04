@@ -1,0 +1,18 @@
+# dbt build artifacts
+target/
+dbt_packages/
+
+# Logs
+logs/
+
+# DuckDB local database files
+*.duckdb
+*.duckdb.wal
+
+# Python virtual environment
+venv/
+.env/
+
+# OS files
+.DS_Store
+Thumbs.db
