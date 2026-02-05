@@ -2,18 +2,46 @@ version: 2
 
 models:
   - name: stg_customers
+    description: "This is the raw data from customers csv file"
     columns:
       - name: customer_id
-        tests: [not_null, unique]
-
+        description: "This column is to check the uniqueness"
+        tests:
+          - unique
+          - not_null
+      - name: customer_name
+        description: "This is for customer name"
+        tests:
+          - not_null
+      - name: email
+        description: "This is for customer email check"
+        tests:
+          - not_null
+          - unique
+      - name: created_date
+        description: "This is for customer created date"
+        tests:
+          - not_null
   - name: stg_orders
+    description: "This is for the orders table raw data transformation"
     columns:
       - name: order_id
-        tests: [not_null, unique]
+        description: "This column is to check unique of order_id"
+        tests:
+          - unique
+          - not_null
       - name: customer_id
-        tests: [not_null]
-
-  - name: stg_payments
-    columns:
-      - name: payment_id
-        tests: [not_null, unique]
+        description: "This column is to check unique of customer_id and check foriegn key"
+        tests:
+          - not_null
+          - relationships:
+              field: customer_id
+              to: ref('stg_customers')
+      - name: order_date
+        description: "This column is to check the test for order_date"
+        tests:
+          - not_null
+      - name: amount
+        description: "Order amount"
+        tests:
+          - not_null
