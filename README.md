@@ -1,5 +1,10 @@
 Welcome to my DBT project learning repo
 
-day1: learnt about the jinja template in DBT and done two excercises
+Day1
+## Dataset
+Brazilian E-commerce (Olist)
 
+## Features
+- Environment-based Jinja logic
+- practice 2 problems
 
